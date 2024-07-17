@@ -1,0 +1,23 @@
+name: Hi 🌍
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - hello-world-docker-action/**
+  workflow_dispatch:
+
+jobs:
+  test-my-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name : checkout
+        uses : actions/checkout@v4
+      - name : test-the-action
+        id : action-checker
+        uses :  ./hello-world-docker-action
+        with :
+          who-to-greet: world
+      - name: show output
+        run : echo "The time was ${{ steps.action-checker.outputs.time }} when the action said hello"
