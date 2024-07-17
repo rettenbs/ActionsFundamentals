@@ -7,4 +7,5 @@ echo "time=$(date)" >> $GITHUB_OUTPUT
 echo "Hi $1, the time is $(date)" >> $GITHUB_STEP_SUMMARY
 
 pwd
-ls
+ls -l
+env
